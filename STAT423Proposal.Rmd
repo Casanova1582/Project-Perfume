@@ -1,0 +1,23 @@
+---
+title: "STAT 423 Project Proposal"
+author: "Chris Chen, Peter Liu, Yueqi Xu"
+date: "1/20/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+What is the major factor that determines the retail prices of perfume? In this project, we seek to answer the following pair of substantial questions,
+\begin{enumerate}
+    \item Does the prestige of the brands contribute the most of the perfume retail price? Namely, does bigger brands typically cost more? Or,
+    \item Does the customer rating contribute the most of the perfume retail price? Namely, does good perfume are typically more expensive?
+\end{enumerate}
+
+We will consider a dataset of perfumes for female, male, and kids, which is collected from a lifestyle shopping destination in Saudi Arabia called \textit{noon}. The dataset contains a collection of 1,002 perfumes, specified with product parameters including retail price, brand, volume, fragrance concentration, department, scents, base, and middle note, as well as retail information including retail company, customer \& retailer rating, and grand selling amount. Apart from brand and customer rating, the perfume volume, concentration, and grand selling amount can be considered as potential covariate. Believing in theory that preference & taste plays an important role on demand and hence price, we might further add scents and key notes as covariates to refine the model. Additional to the primary questions of interest, we are also eager to investigate if the perfume's department (female/male/kids) or scents (woody/floral/fruity/etc...) generally leads to difference in retail price and customer rating distributions.
+
+The significance of this project is to generally inform the public on how likely it is to make a mistake if one only aims for high price and big brand when purchasing a perfume. For curious connoisseurs, we further discuss the effects of scents and key notes on ratings and prices, for it could lend a hand to them when they are exploring new wonderlands in the aromatic world. 
+
+The original data set can be found from this \href{https://www.kaggle.com/monirahabdulaziz/noon-perfume?select=noon_perfumes_dataset.csv}{link}. 
+

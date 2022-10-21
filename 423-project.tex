@@ -1,0 +1,1767 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={423 project},
+  pdfauthor={Chris Chen},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{423 project}
+\author{Chris Chen}
+\date{1/20/2022}
+
+\begin{document}
+\maketitle
+
+\hypertarget{preliminaries}{%
+\subsection{Preliminaries}\label{preliminaries}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.7
+## v tidyr   1.1.4     v stringr 1.4.0
+## v readr   2.1.0     v forcats 0.5.1
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(expm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'Matrix'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:tidyr':
+## 
+##     expand, pack, unpack
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'expm'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:Matrix':
+## 
+##     expm
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(lmvar)}
+\FunctionTok{library}\NormalTok{(leaps)}
+\FunctionTok{library}\NormalTok{(RColorBrewer)}
+\FunctionTok{library}\NormalTok{(lmtest)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: zoo
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'zoo'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     as.Date, as.Date.numeric
+\end{verbatim}
+
+\hypertarget{dataset}{%
+\subsection{Dataset}\label{dataset}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{perfume }\OtherTok{=} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"noon\_perfumes\_dataset.csv"}\NormalTok{)}
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(perfume))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(perfume)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   X           brand              name old_price new_price  ml concentration
+## 1 0    PACO RABANNE   1 Million Lucky       395    244.55 100           EDT
+## 2 1 Roberto Cavalli Paradiso Assoluto       415    107.95  50           EDP
+## 3 2      S.T.Dupont       Royal Amber       265    186.90 100           EDP
+## 4 3           GUESS    Seductive Blue       290    103.20 100           EDT
+## 5 4 Roberto Cavalli              Uomo       260     94.95  50           EDP
+## 6 5 Roberto Cavalli           cavalli       260     94.95  50           EDP
+##   department  scents                                   base_note
+## 1        Men   Woody              Oakmoss, Patchouli and Vetiver
+## 2      Women  Floral           Vanilla, Sandalwood And Patchouli
+## 3     Unisex Arabian                   Lemon, Mint and Wood Moss
+## 4        Men   Spicy Cashmere Wood, Moss And Rippled Sand Accord
+## 5      Women Arabian                Vanille, Benzoin, Tonka Bean
+## 6      Women Arabian                Vanille, Benzoin, Tonka Bean
+##                                        middle_note item_rating seller
+## 1 Hazelnut, Jasmine, Cashmir Wood, Cedar and Honey         5.0   noon
+## 2                        Wild Jasmine and Red Lily         4.8   noon
+## 3                             Sandalwood and Cedar         5.0   noon
+## 4         Blue Coral Aquaspace Accord And Geranium         3.0   noon
+## 5                            African Orange Flower         4.8   noon
+## 6                            African Orange Flower         4.8   noon
+##   seller_rating num_seller_ratings
+## 1           4.2              98.1K
+## 2           4.2              98.1K
+## 3           4.2              98.1K
+## 4           4.2              98.1K
+## 5           4.2              98.1K
+## 6           4.2              98.1K
+\end{verbatim}
+
+no empty value. good.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{perfume }\OtherTok{=}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{scent =} \FunctionTok{ifelse}\NormalTok{(scents }\SpecialCharTok{==} \StringTok{"Arabian"}\NormalTok{, }\StringTok{"Oriental"}\NormalTok{, scents))}
+\NormalTok{p1 }\OtherTok{=} \FunctionTok{subset}\NormalTok{(perfume, scent }\SpecialCharTok{!=} \StringTok{"Vanilla"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Aromatic"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Musk"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Jasmine"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Floral and Oriental"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Rose, Floral"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Sandalwood"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Woody, Sweet"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Aromatic,Citrus"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Clean"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Oriental, Floral"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Sweet Aromatic"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Woody And Spicy"} \SpecialCharTok{\&}\NormalTok{ scent }\SpecialCharTok{!=} \StringTok{"Woody, Musky"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p2 }\OtherTok{=}\NormalTok{ p1 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{conc =} \FunctionTok{ifelse}\NormalTok{(concentration }\SpecialCharTok{==} \StringTok{"PDT"}\NormalTok{, }\StringTok{"EDT"}\NormalTok{, concentration))}
+\NormalTok{p2 }\OtherTok{=} \FunctionTok{subset}\NormalTok{(p2, }\AttributeTok{select =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(concentration))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p3 }\OtherTok{=}\NormalTok{ p2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{brands1 =} \FunctionTok{ifelse}\NormalTok{(brand }\SpecialCharTok{==} \StringTok{"ST Dupont"}\NormalTok{, }\StringTok{"S.T.Dupont"}\NormalTok{, brand)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{brands2 =} \FunctionTok{ifelse}\NormalTok{(brands1 }\SpecialCharTok{==} \StringTok{"armani"}\NormalTok{, }\StringTok{"GIORGIO ARMANI"}\NormalTok{, brands1)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{brands3 =} \FunctionTok{ifelse}\NormalTok{(brands2 }\SpecialCharTok{==} \StringTok{"Genie Collection"}\NormalTok{, }\StringTok{"Genie"}\NormalTok{, brands2)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{brands4 =} \FunctionTok{ifelse}\NormalTok{(brands3 }\SpecialCharTok{==} \StringTok{"LANVIN PARIS"}\NormalTok{, }\StringTok{"LANVIN"}\NormalTok{, brands3)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{brands5 =} \FunctionTok{ifelse}\NormalTok{(brands4 }\SpecialCharTok{==} \StringTok{"Mont Blanc"}\NormalTok{, }\StringTok{"MONTBLANC"}\NormalTok{, brands4)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{brands6 =} \FunctionTok{ifelse}\NormalTok{(brands5 }\SpecialCharTok{==} \StringTok{"marbert man"}\NormalTok{, }\StringTok{"Marbert"}\NormalTok{, brands5)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{brands =} \FunctionTok{ifelse}\NormalTok{(brands6 }\SpecialCharTok{==} \StringTok{"YSL"} \SpecialCharTok{|}\NormalTok{ brands6 }\SpecialCharTok{==} \StringTok{"YVES"}\NormalTok{, }\StringTok{"Yves Saint Laurent"}\NormalTok{, brands6))}
+\NormalTok{p3 }\OtherTok{=} \FunctionTok{subset}\NormalTok{(p3, }\AttributeTok{select =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(brand, brands1, brands2, brands3, brands4, brands5, brands6))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p4 }\OtherTok{=} \FunctionTok{subset}\NormalTok{(p3, seller\_rating }\SpecialCharTok{\textless{}=} \FloatTok{5.0}\NormalTok{)}
+\NormalTok{p5 }\OtherTok{=}\NormalTok{ p4 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{num\_sel\_ratings =} 
+           \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"K"}\NormalTok{, num\_seller\_ratings), }
+                  \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{substring}\NormalTok{(num\_seller\_ratings, }\DecValTok{1}\NormalTok{, }\FunctionTok{nchar}\NormalTok{(num\_seller\_ratings) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{*} \DecValTok{1000}\NormalTok{,}
+                  \FunctionTok{as.numeric}\NormalTok{(num\_seller\_ratings)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in ifelse(grepl("K", num_seller_ratings),
+## as.numeric(substring(num_seller_ratings, : NAs introduced by coercion
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p5 }\OtherTok{=} \FunctionTok{subset}\NormalTok{(p5, }\AttributeTok{select =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(num\_seller\_ratings))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# clean seller column}
+\NormalTok{seller }\OtherTok{=} \FunctionTok{as.vector}\NormalTok{(p5}\SpecialCharTok{$}\NormalTok{seller)}
+\NormalTok{seller }\OtherTok{=} \FunctionTok{tolower}\NormalTok{(seller)}
+\NormalTok{index\_golden }\OtherTok{=} \FunctionTok{which}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"golden"}\NormalTok{, seller))}
+\NormalTok{seller[index\_golden] }\OtherTok{=} \StringTok{"golden perfumes"}
+\NormalTok{index\_lolita }\OtherTok{=} \FunctionTok{which}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"lolita"}\NormalTok{, seller))}
+\NormalTok{seller[index\_lolita] }\OtherTok{=} \StringTok{"lolita shop"}
+\NormalTok{index\_noon }\OtherTok{=} \FunctionTok{which}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"noon"}\NormalTok{, seller))}
+\NormalTok{seller[index\_noon] }\OtherTok{=} \StringTok{"noon"}
+\NormalTok{index\_swiss }\OtherTok{=} \FunctionTok{which}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"swiss"}\NormalTok{, seller))}
+\NormalTok{seller[index\_swiss] }\OtherTok{=} \StringTok{"swiss arabian perfumes"}
+\NormalTok{index\_pa }\OtherTok{=} \FunctionTok{which}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"perfumes{-}{-}addresses"}\NormalTok{, seller))}
+\NormalTok{seller[index\_pa] }\OtherTok{=} \StringTok{"perfumes"}
+\NormalTok{index\_ps }\OtherTok{=} \FunctionTok{which}\NormalTok{(}\FunctionTok{grepl}\NormalTok{(}\StringTok{"perfumes{-}shop"}\NormalTok{, seller))}
+\NormalTok{seller[index\_ps] }\OtherTok{=} \StringTok{"perfumes"}
+
+\NormalTok{p6 }\OtherTok{=}\NormalTok{ p5}
+\NormalTok{p6}\SpecialCharTok{$}\NormalTok{seller }\OtherTok{=}\NormalTok{ seller}
+\NormalTok{sb }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\DecValTok{48}\NormalTok{, }\DecValTok{435}\NormalTok{, }\DecValTok{651}\NormalTok{)}
+\NormalTok{bf }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\DecValTok{109}\NormalTok{, }\DecValTok{121}\NormalTok{, }\DecValTok{470}\NormalTok{, }\DecValTok{565}\NormalTok{, }\DecValTok{576}\NormalTok{)}
+\NormalTok{p6 }\OtherTok{=}\NormalTok{ p6 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{seller1 =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.element}\NormalTok{(X, sb), }\StringTok{"show biz"}\NormalTok{, seller)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sellers =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.element}\NormalTok{(X, bf), }\StringTok{"beauty fortune"}\NormalTok{, seller))}
+\NormalTok{p6 }\OtherTok{=} \FunctionTok{subset}\NormalTok{(p6, }\AttributeTok{select =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(seller1, seller))}
+\NormalTok{p6 }\OtherTok{=}\NormalTok{ p6 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(conc }\SpecialCharTok{!=} \StringTok{"EDC"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{as.vector}\NormalTok{(p6}\SpecialCharTok{$}\NormalTok{base\_note)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{tolower}\NormalTok{(base\_note)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{" and "}\NormalTok{, }\StringTok{","}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{" "}\NormalTok{, }\StringTok{""}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"vanille"}\NormalTok{, }\StringTok{"vanilla"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"woodsynotes"}\NormalTok{, }\StringTok{"wood"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"orrisroot"}\NormalTok{, }\StringTok{"orris"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"woodsynote"}\NormalTok{, }\StringTok{"wood"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"woodynotes"}\NormalTok{, }\StringTok{"wood"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"woody"}\NormalTok{, }\StringTok{"wood"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"cedarwood"}\NormalTok{, }\StringTok{"cedar"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"virginiacedar"}\NormalTok{, }\StringTok{"cedar"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"whitemusk"}\NormalTok{, }\StringTok{"musk"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"tonkabeans"}\NormalTok{, }\StringTok{"tonka"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"tonkabean"}\NormalTok{, }\StringTok{"tonka"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"amberwood"}\NormalTok{, }\StringTok{"amber"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"sandalwood"}\NormalTok{, }\StringTok{"sandal"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"cashmerewood"}\NormalTok{, }\StringTok{"cashmere"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"guaiacwood"}\NormalTok{, }\StringTok{"guaiac"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"ambergris"}\NormalTok{, }\StringTok{"AMBERGRIS"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"mustyoud"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"naturaloudoil"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"agarwood}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{(oud}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{)"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"agarwood"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{base\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(base\_note, }\StringTok{"oudh"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{p6}\SpecialCharTok{$}\NormalTok{base\_note }\OtherTok{=}\NormalTok{ base\_note}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{as.vector}\NormalTok{(p6}\SpecialCharTok{$}\NormalTok{middle\_note)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{tolower}\NormalTok{(mid\_note)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{" and "}\NormalTok{, }\StringTok{","}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{" "}\NormalTok{, }\StringTok{""}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"lily{-}of{-}the{-}valley"}\NormalTok{, }\StringTok{"lily"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"orrisroot"}\NormalTok{, }\StringTok{"orris"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"lilyofthevalley"}\NormalTok{, }\StringTok{"lily"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"bulgarianrose"}\NormalTok{, }\StringTok{"rose"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"africanorangeflower"}\NormalTok{, }\StringTok{"orangeblossom"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"neroli"}\NormalTok{, }\StringTok{"orangeblossom"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"jasminesambac"}\NormalTok{, }\StringTok{"jasmine"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"wildjasmine"}\NormalTok{, }\StringTok{"jasmine"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"wildjasmine"}\NormalTok{, }\StringTok{"jasmine"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"blackpepper"}\NormalTok{, }\StringTok{"pepper"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"pinkpepper"}\NormalTok{, }\StringTok{"pepper"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"vanille"}\NormalTok{, }\StringTok{"vanilla"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"tuberose"}\NormalTok{, }\StringTok{"TUBEROSE"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"orrisroot"}\NormalTok{, }\StringTok{"ORRISROOT"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"honeysuckle"}\NormalTok{, }\StringTok{"HONEYSUCKLE"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"rosemary"}\NormalTok{, }\StringTok{"ROSEMARY"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"violetleaf"}\NormalTok{, }\StringTok{"VIOLETLEAF"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"clarysage"}\NormalTok{, }\StringTok{"CLARYSAGE"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"oudh"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"burningoud"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"agarwood}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{(oud}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{)"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"agarwood"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{mid\_note }\OtherTok{=} \FunctionTok{str\_replace\_all}\NormalTok{(mid\_note, }\StringTok{"oudwood"}\NormalTok{, }\StringTok{"oud"}\NormalTok{)}
+\NormalTok{p6}\SpecialCharTok{$}\NormalTok{middle\_note }\OtherTok{=}\NormalTok{ mid\_note}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p7 }\OtherTok{=}\NormalTok{ p6 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(ml }\SpecialCharTok{\textgreater{}} \DecValTok{5}\NormalTok{)}
+\CommentTok{\# }
+\CommentTok{\# \# add ordinal version of ml}
+\CommentTok{\# vol = as.vector(p7$ml)}
+\CommentTok{\# unique\_vol = as.data.frame(vol) \%\textgreater{}\%}
+\CommentTok{\#   group\_by(vol) \%\textgreater{}\%}
+\CommentTok{\#   summarise(count = n()) \%\textgreater{}\%}
+\CommentTok{\#   subset(select = vol)}
+\CommentTok{\# unique\_vol = as.vector(unique\_vol$vol)}
+\CommentTok{\# }
+\CommentTok{\# order = vol}
+\CommentTok{\# rank = 0}
+\CommentTok{\# for (i in unique\_vol) \{}
+\CommentTok{\#   rank = rank + 1}
+\CommentTok{\#   index = which(vol == i)}
+\CommentTok{\#   order[index] = rank}
+\CommentTok{\# \}}
+\CommentTok{\# p7$ml\_order = order}
+\CommentTok{\# p7 = subset(p7, select = {-}c(ml))}
+\NormalTok{p7 }\OtherTok{=}\NormalTok{ p7 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{gender =} \FunctionTok{ifelse}\NormalTok{(department }\SpecialCharTok{==} \StringTok{"Kids Unisex"}\NormalTok{, }\StringTok{"Unisex"}\NormalTok{, department)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(middle\_note }\SpecialCharTok{!=} \StringTok{"shavingsoap"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{perfume }\OtherTok{=} \FunctionTok{subset}\NormalTok{(p7, }\AttributeTok{select =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(department, X, name, scents))}
+\NormalTok{perfume }\OtherTok{=} \FunctionTok{unique}\NormalTok{(perfume)}
+
+\NormalTok{brand }\OtherTok{=} \FunctionTok{as.vector}\NormalTok{(p7}\SpecialCharTok{$}\NormalTok{brands)}
+\NormalTok{brand }\OtherTok{=} \FunctionTok{tolower}\NormalTok{(brand)}
+\NormalTok{new\_brands }\OtherTok{=} \FunctionTok{as.data.frame}\NormalTok{(brand) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(brand) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(count))}
+\NormalTok{big\_brands }\OtherTok{=}\NormalTok{ new\_brands[}\FunctionTok{which}\NormalTok{(new\_brands}\SpecialCharTok{$}\NormalTok{count }\SpecialCharTok{\textgreater{}} \DecValTok{10}\NormalTok{), ]}\SpecialCharTok{$}\NormalTok{brand}
+\NormalTok{perfume }\OtherTok{=}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{big\_brand =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.element}\NormalTok{(}\FunctionTok{tolower}\NormalTok{(brands), big\_brands), }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+\NormalTok{perfume }\OtherTok{=} \FunctionTok{subset}\NormalTok{(perfume, }\AttributeTok{select =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(brands))}
+
+\NormalTok{perfume }\OtherTok{=}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{is\_noon =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{tolower}\NormalTok{(sellers) }\SpecialCharTok{==} \StringTok{\textquotesingle{}noon\textquotesingle{}}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+\NormalTok{perfume }\OtherTok{=} \FunctionTok{subset}\NormalTok{(perfume, }\AttributeTok{select =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(sellers))}
+
+\NormalTok{get\_notes }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(base, middle) \{}
+\NormalTok{  bnote }\OtherTok{=} \FunctionTok{as.vector}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(base, }\AttributeTok{split =} \StringTok{","}\NormalTok{)))}
+\NormalTok{  mnote }\OtherTok{=} \FunctionTok{as.vector}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(middle, }\AttributeTok{split =} \StringTok{","}\NormalTok{)))}
+  \FunctionTok{return}\NormalTok{(}\FunctionTok{union}\NormalTok{(bnote, mnote))}
+\NormalTok{\}}
+
+\NormalTok{complexity }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(notes) \{}
+  \FunctionTok{return}\NormalTok{(}\FunctionTok{length}\NormalTok{(notes))}
+\NormalTok{\}}
+
+\NormalTok{luxury }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(notes) \{}
+\NormalTok{  score }\OtherTok{=} \DecValTok{0}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(notes)) \{}
+    \ControlFlowTok{if}\NormalTok{ (notes[i] }\SpecialCharTok{==} \StringTok{"musk"} \SpecialCharTok{|}\NormalTok{ notes[i] }\SpecialCharTok{==} \StringTok{"orris"}\NormalTok{) \{ }\CommentTok{\# 100{-}200}
+\NormalTok{      score }\OtherTok{=}\NormalTok{ score }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{    \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (notes[i] }\SpecialCharTok{==} \StringTok{"neroli"} \SpecialCharTok{|}\NormalTok{ notes[i] }\SpecialCharTok{==} \StringTok{"jasmine"} \SpecialCharTok{|}\NormalTok{ notes[i] }\SpecialCharTok{==} \StringTok{"sandal"}\NormalTok{) \{ }\CommentTok{\# 200{-}400}
+\NormalTok{      score }\OtherTok{=}\NormalTok{ score }\SpecialCharTok{+} \DecValTok{2}
+\NormalTok{    \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (notes[i] }\SpecialCharTok{==} \StringTok{"rose"} \SpecialCharTok{|}\NormalTok{ notes[i] }\SpecialCharTok{==} \StringTok{"tuberose"}\NormalTok{) \{ }\CommentTok{\# 400{-}800}
+\NormalTok{      score }\OtherTok{=}\NormalTok{ score }\SpecialCharTok{+} \DecValTok{3}
+\NormalTok{    \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (notes[i] }\SpecialCharTok{==} \StringTok{"AMBERGRIS"}\NormalTok{) \{ }\CommentTok{\# 800{-}1200}
+\NormalTok{      score }\OtherTok{=}\NormalTok{ score }\SpecialCharTok{+} \DecValTok{4}
+\NormalTok{    \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (notes[i] }\SpecialCharTok{==} \StringTok{"oud"}\NormalTok{) \{ }\CommentTok{\# 1200{-}1600}
+\NormalTok{      score }\OtherTok{=}\NormalTok{ score }\SpecialCharTok{+} \DecValTok{5}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      score }\OtherTok{=}\NormalTok{ score }\SpecialCharTok{+} \DecValTok{0}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  \FunctionTok{return}\NormalTok{(score)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{N }\OtherTok{=} \FunctionTok{nrow}\NormalTok{(perfume)}
+\NormalTok{complex }\OtherTok{=}\NormalTok{ lux }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, N)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{N) \{}
+\NormalTok{  complex[i] }\OtherTok{=} \FunctionTok{complexity}\NormalTok{(}\FunctionTok{get\_notes}\NormalTok{(perfume[i, ]}\SpecialCharTok{$}\NormalTok{base\_note, perfume[i, ]}\SpecialCharTok{$}\NormalTok{middle\_note))}
+\NormalTok{  lux[i] }\OtherTok{=} \FunctionTok{luxury}\NormalTok{(}\FunctionTok{get\_notes}\NormalTok{(perfume[i, ]}\SpecialCharTok{$}\NormalTok{base\_note, perfume[i, ]}\SpecialCharTok{$}\NormalTok{middle\_note))}
+\NormalTok{\}}
+\NormalTok{comp\_score }\OtherTok{=}\NormalTok{ lux\_score }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, N)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{N) \{}
+\NormalTok{  x }\OtherTok{=}\NormalTok{ complex[i]}
+\NormalTok{  comp\_score[i] }\OtherTok{=} \FunctionTok{sum}\NormalTok{(complex }\SpecialCharTok{\textless{}=}\NormalTok{ x) }\SpecialCharTok{/}\NormalTok{ N }\SpecialCharTok{*} \DecValTok{100}
+\NormalTok{  y }\OtherTok{=}\NormalTok{ lux[i]}
+\NormalTok{  lux\_score[i] }\OtherTok{=} \FunctionTok{sum}\NormalTok{(lux }\SpecialCharTok{\textless{}=}\NormalTok{ y) }\SpecialCharTok{/}\NormalTok{ N }\SpecialCharTok{*} \DecValTok{100}
+\NormalTok{\}}
+\NormalTok{perfume }\OtherTok{=}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{comp =}\NormalTok{ complex)}
+\CommentTok{\# (comp\_score * lux\_score) / 100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rse }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(model) \{}
+  \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{sum}\NormalTok{(model}\SpecialCharTok{$}\NormalTok{residuals }\SpecialCharTok{\^{}} \DecValTok{2}\NormalTok{) }\SpecialCharTok{/}\NormalTok{ model}\SpecialCharTok{$}\NormalTok{df.residual)}
+\NormalTok{\}}
+
+\NormalTok{r2 }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(model) \{}
+  \FunctionTok{summary}\NormalTok{(model)}\SpecialCharTok{$}\NormalTok{adj.r.squared}
+\NormalTok{\}}
+
+\NormalTok{mse }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(model) \{}
+  \FunctionTok{mean}\NormalTok{(model}\SpecialCharTok{$}\NormalTok{residuals }\SpecialCharTok{\^{}} \DecValTok{2}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{ge }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(model) \{}
+\NormalTok{  n }\OtherTok{=} \FunctionTok{nobs}\NormalTok{(model)}
+\NormalTok{  ge }\OtherTok{=} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ (}\FunctionTok{rse}\NormalTok{(model) }\SpecialCharTok{\^{}} \DecValTok{2}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{length}\NormalTok{(model}\SpecialCharTok{$}\NormalTok{coefficients) }\SpecialCharTok{/}\NormalTok{ n}
+  \FunctionTok{return}\NormalTok{(ge)}
+\NormalTok{\}}
+
+\NormalTok{Cp.lm }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(mdl.list) \{}
+\NormalTok{  n }\OtherTok{=} \FunctionTok{nobs}\NormalTok{(mdl.list[[}\DecValTok{1}\NormalTok{]])}
+\NormalTok{  DoFs }\OtherTok{=} \FunctionTok{sapply}\NormalTok{(mdl.list, }\ControlFlowTok{function}\NormalTok{(mdl) \{ }\FunctionTok{sum}\NormalTok{(}\FunctionTok{hatvalues}\NormalTok{(mdl)) \})}
+\NormalTok{  MSEs }\OtherTok{=} \FunctionTok{sapply}\NormalTok{(mdl.list, }\ControlFlowTok{function}\NormalTok{(mdl) \{ }\FunctionTok{mean}\NormalTok{(}\FunctionTok{residuals}\NormalTok{(mdl)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) \})}
+\NormalTok{  biggest }\OtherTok{=} \FunctionTok{which.max}\NormalTok{(DoFs)}
+\NormalTok{  sigma2.hat }\OtherTok{=}\NormalTok{ MSEs[[biggest]]}\SpecialCharTok{*}\NormalTok{n}\SpecialCharTok{/}\NormalTok{(n}\SpecialCharTok{{-}}\NormalTok{DoFs[[biggest]])}
+\NormalTok{  Cp }\OtherTok{=}\NormalTok{ MSEs }\SpecialCharTok{+} \DecValTok{2}\SpecialCharTok{*}\NormalTok{sigma2.hat}\SpecialCharTok{*}\NormalTok{DoFs}\SpecialCharTok{/}\NormalTok{n}
+  \FunctionTok{return}\NormalTok{(Cp)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{perfume }\OtherTok{=} \FunctionTok{subset}\NormalTok{(perfume, }\AttributeTok{select =} \SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(new\_price, base\_note, middle\_note))}
+\NormalTok{lm}\FloatTok{.1} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ perfume)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ ., data = perfume)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -377.71 -147.39  -16.41  115.27 1441.45 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)      6.634e+01  1.671e+02   0.397 0.691464    
+## ml               1.279e+00  3.548e-01   3.606 0.000331 ***
+## item_rating      3.702e+00  1.412e+01   0.262 0.793250    
+## seller_rating    5.571e+01  3.895e+01   1.430 0.153087    
+## scentFloral     -1.275e+01  3.017e+01  -0.423 0.672596    
+## scentFresh      -9.728e+01  4.215e+01  -2.308 0.021281 *  
+## scentFruity     -5.955e+01  3.753e+01  -1.587 0.113008    
+## scentOriental   -5.881e+01  3.575e+01  -1.645 0.100345    
+## scentSpicy      -4.004e+01  3.322e+01  -1.205 0.228429    
+## scentWoody       9.180e+00  3.024e+01   0.304 0.761549    
+## concEDT         -1.457e+02  1.966e+01  -7.410 3.29e-13 ***
+## num_sel_ratings -1.254e-03  9.611e-04  -1.305 0.192323    
+## genderUnisex    -1.179e+02  3.615e+01  -3.261 0.001160 ** 
+## genderWomen     -1.588e+01  2.213e+01  -0.718 0.473214    
+## big_brand        7.978e+01  1.597e+01   4.996 7.22e-07 ***
+## is_noon          9.856e+01  9.317e+01   1.058 0.290441    
+## comp            -3.123e+00  2.380e+00  -1.312 0.189851    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 216.3 on 781 degrees of freedom
+## Multiple R-squared:  0.1371, Adjusted R-squared:  0.1194 
+## F-statistic: 7.755 on 16 and 781 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# residual analysis}
+\FunctionTok{plot}\NormalTok{(lm}\FloatTok{.1}\NormalTok{, }\AttributeTok{which =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dwtest}\NormalTok{(lm}\FloatTok{.1}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"two.sided"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Durbin-Watson test
+## 
+## data:  lm.1
+## DW = 1.916, p-value = 0.2273
+## alternative hypothesis: true autocorrelation is not 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{set1 }\OtherTok{=}\NormalTok{ lm}\FloatTok{.1}\SpecialCharTok{$}\NormalTok{residuals[}\FunctionTok{which}\NormalTok{(lm}\FloatTok{.1}\SpecialCharTok{$}\NormalTok{fitted.values }\SpecialCharTok{\textgreater{}=} \DecValTok{300}\NormalTok{)]}
+\NormalTok{set2 }\OtherTok{=}\NormalTok{ lm}\FloatTok{.1}\SpecialCharTok{$}\NormalTok{residuals[}\FunctionTok{which}\NormalTok{(lm}\FloatTok{.1}\SpecialCharTok{$}\NormalTok{fitted.values }\SpecialCharTok{\textless{}} \DecValTok{300}\NormalTok{)]}
+\FunctionTok{var.test}\NormalTok{(set1, set2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F test to compare two variances
+## 
+## data:  set1 and set2
+## F = 1.39, num df = 499, denom df = 297, p-value = 0.001831
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  1.131064 1.699080
+## sample estimates:
+## ratio of variances 
+##           1.389972
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{perfume2 }\OtherTok{=}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(old\_price }\SpecialCharTok{\textless{}} \DecValTok{930}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lm}\FloatTok{.2} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ perfume2)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ ., data = perfume2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -388.70 -132.69   -8.52  121.88  616.08 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     -4.924e+01  1.364e+02  -0.361 0.718195    
+## ml               1.170e+00  2.878e-01   4.065 5.30e-05 ***
+## item_rating      6.780e+00  1.152e+01   0.589 0.556282    
+## seller_rating    8.123e+01  3.181e+01   2.554 0.010849 *  
+## scentFloral     -1.104e+01  2.451e+01  -0.451 0.652394    
+## scentFresh      -1.164e+02  3.440e+01  -3.383 0.000754 ***
+## scentFruity     -6.434e+01  3.054e+01  -2.107 0.035429 *  
+## scentOriental   -4.197e+01  2.897e+01  -1.449 0.147821    
+## scentSpicy      -5.380e+01  2.697e+01  -1.995 0.046392 *  
+## scentWoody      -2.651e+01  2.466e+01  -1.075 0.282736    
+## concEDT         -1.201e+02  1.613e+01  -7.444 2.63e-13 ***
+## num_sel_ratings -1.084e-03  7.783e-04  -1.393 0.164150    
+## genderUnisex    -1.570e+02  2.980e+01  -5.270 1.78e-07 ***
+## genderWomen     -2.308e+01  1.820e+01  -1.268 0.205283    
+## big_brand        8.712e+01  1.306e+01   6.672 4.84e-11 ***
+## is_noon          8.543e+01  7.543e+01   1.132 0.257784    
+## comp            -4.513e+00  1.934e+00  -2.333 0.019893 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 175.1 on 767 degrees of freedom
+## Multiple R-squared:  0.1923, Adjusted R-squared:  0.1754 
+## F-statistic: 11.41 on 16 and 767 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# residual analysis}
+\FunctionTok{plot}\NormalTok{(lm}\FloatTok{.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-18-1.pdf}
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-18-2.pdf}
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-18-3.pdf}
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-18-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(lm}\FloatTok{.2}\NormalTok{, }\AttributeTok{which =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-18-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dwtest}\NormalTok{(lm}\FloatTok{.2}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"two.sided"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Durbin-Watson test
+## 
+## data:  lm.2
+## DW = 1.8785, p-value = 0.08476
+## alternative hypothesis: true autocorrelation is not 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{set1 }\OtherTok{=}\NormalTok{ lm}\FloatTok{.2}\SpecialCharTok{$}\NormalTok{residuals[}\FunctionTok{which}\NormalTok{(lm}\FloatTok{.2}\SpecialCharTok{$}\NormalTok{fitted.values }\SpecialCharTok{\textgreater{}=} \DecValTok{300}\NormalTok{)]}
+\NormalTok{set2 }\OtherTok{=}\NormalTok{ lm}\FloatTok{.2}\SpecialCharTok{$}\NormalTok{residuals[}\FunctionTok{which}\NormalTok{(lm}\FloatTok{.2}\SpecialCharTok{$}\NormalTok{fitted.values }\SpecialCharTok{\textless{}} \DecValTok{300}\NormalTok{)]}
+\FunctionTok{var.test}\NormalTok{(set1, set2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F test to compare two variances
+## 
+## data:  set1 and set2
+## F = 1.0427, num df = 451, denom df = 331, p-value = 0.6874
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.8515493 1.2727029
+## sample estimates:
+## ratio of variances 
+##           1.042677
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remove is\_noon?}
+\NormalTok{lm}\FloatTok{.3} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+}\NormalTok{ item\_rating }\SpecialCharTok{+}
+\NormalTok{            conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+}\NormalTok{ num\_sel\_ratings }\SpecialCharTok{+}
+\NormalTok{            gender }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}\NormalTok{ scent, }\AttributeTok{data =}\NormalTok{ perfume2)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ big_brand + comp + item_rating + conc + 
+##     ml + num_sel_ratings + gender + seller_rating + scent, data = perfume2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -388.54 -132.61   -7.18  122.82  617.14 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     -5.047e+01  1.364e+02  -0.370 0.711535    
+## big_brand        8.661e+01  1.305e+01   6.635 6.11e-11 ***
+## comp            -4.504e+00  1.935e+00  -2.328 0.020175 *  
+## item_rating      6.865e+00  1.152e+01   0.596 0.551454    
+## concEDT         -1.212e+02  1.610e+01  -7.527 1.46e-13 ***
+## ml               1.164e+00  2.878e-01   4.043 5.81e-05 ***
+## num_sel_ratings -2.269e-04  1.822e-04  -1.245 0.213372    
+## genderUnisex    -1.579e+02  2.980e+01  -5.298 1.53e-07 ***
+## genderWomen     -2.304e+01  1.821e+01  -1.265 0.206096    
+## seller_rating    8.164e+01  3.181e+01   2.566 0.010466 *  
+## scentFloral     -1.172e+01  2.451e+01  -0.478 0.632632    
+## scentFresh      -1.157e+02  3.440e+01  -3.365 0.000805 ***
+## scentFruity     -6.415e+01  3.054e+01  -2.101 0.036006 *  
+## scentOriental   -4.053e+01  2.895e+01  -1.400 0.161917    
+## scentSpicy      -5.251e+01  2.695e+01  -1.949 0.051710 .  
+## scentWoody      -2.664e+01  2.467e+01  -1.080 0.280472    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 175.1 on 768 degrees of freedom
+## Multiple R-squared:  0.1909, Adjusted R-squared:  0.1751 
+## F-statistic: 12.08 on 15 and 768 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(lm}\FloatTok{.2}\NormalTok{, lm}\FloatTok{.3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: old_price ~ ml + item_rating + seller_rating + scent + conc + 
+##     num_sel_ratings + gender + big_brand + is_noon + comp
+## Model 2: old_price ~ big_brand + comp + item_rating + conc + ml + num_sel_ratings + 
+##     gender + seller_rating + scent
+##   Res.Df      RSS Df Sum of Sq      F Pr(>F)
+## 1    767 23519758                           
+## 2    768 23559086 -1    -39328 1.2825 0.2578
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# yes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remove item\_rating?}
+\NormalTok{lm}\FloatTok{.4} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+} 
+\NormalTok{            conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+}\NormalTok{ num\_sel\_ratings }\SpecialCharTok{+}
+\NormalTok{            gender }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}\NormalTok{ scent, }\AttributeTok{data =}\NormalTok{ perfume2)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ big_brand + comp + conc + ml + num_sel_ratings + 
+##     gender + seller_rating + scent, data = perfume2)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -392.0 -131.7   -5.2  124.8  617.7 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     -2.279e+01  1.282e+02  -0.178 0.858964    
+## big_brand        8.682e+01  1.304e+01   6.656 5.33e-11 ***
+## comp            -4.491e+00  1.934e+00  -2.323 0.020462 *  
+## concEDT         -1.217e+02  1.607e+01  -7.574 1.04e-13 ***
+## ml               1.162e+00  2.877e-01   4.040 5.88e-05 ***
+## num_sel_ratings -2.291e-04  1.821e-04  -1.258 0.208764    
+## genderUnisex    -1.581e+02  2.978e+01  -5.309 1.44e-07 ***
+## genderWomen     -2.190e+01  1.810e+01  -1.210 0.226568    
+## seller_rating    8.252e+01  3.177e+01   2.598 0.009566 ** 
+## scentFloral     -1.237e+01  2.447e+01  -0.506 0.613225    
+## scentFresh      -1.165e+02  3.436e+01  -3.390 0.000734 ***
+## scentFruity     -6.452e+01  3.052e+01  -2.114 0.034848 *  
+## scentOriental   -4.094e+01  2.893e+01  -1.415 0.157398    
+## scentSpicy      -5.217e+01  2.693e+01  -1.937 0.053079 .  
+## scentWoody      -2.661e+01  2.466e+01  -1.079 0.280857    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 175.1 on 769 degrees of freedom
+## Multiple R-squared:  0.1906, Adjusted R-squared:  0.1758 
+## F-statistic: 12.93 on 14 and 769 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(lm}\FloatTok{.3}\NormalTok{, lm}\FloatTok{.4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: old_price ~ big_brand + comp + item_rating + conc + ml + num_sel_ratings + 
+##     gender + seller_rating + scent
+## Model 2: old_price ~ big_brand + comp + conc + ml + num_sel_ratings + 
+##     gender + seller_rating + scent
+##   Res.Df      RSS Df Sum of Sq     F Pr(>F)
+## 1    768 23559086                          
+## 2    769 23569977 -1    -10891 0.355 0.5515
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# yes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remove num\_sel\_ratings?}
+\NormalTok{lm}\FloatTok{.5} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+} 
+\NormalTok{            conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+} 
+\NormalTok{            gender }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}\NormalTok{ scent, }\AttributeTok{data =}\NormalTok{ perfume2)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ big_brand + comp + conc + ml + gender + 
+##     seller_rating + scent, data = perfume2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -401.66 -131.55   -6.68  118.22  620.69 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     66.1517   107.0097   0.618 0.536637    
+## big_brand       85.9311    13.0284   6.596 7.87e-11 ***
+## comp            -4.4495     1.9342  -2.300 0.021694 *  
+## concEDT       -121.6950    16.0785  -7.569 1.08e-13 ***
+## ml               1.1437     0.2874   3.979 7.57e-05 ***
+## genderUnisex  -159.7660    29.7651  -5.368 1.06e-07 ***
+## genderWomen    -21.7679    18.1052  -1.202 0.229617    
+## seller_rating   58.8679    25.6163   2.298 0.021826 *  
+## scentFloral    -12.3393    24.4797  -0.504 0.614361    
+## scentFresh    -115.8323    34.3721  -3.370 0.000789 ***
+## scentFruity    -64.5532    30.5335  -2.114 0.034821 *  
+## scentOriental  -40.8892    28.9379  -1.413 0.158060    
+## scentSpicy     -51.5216    26.9361  -1.913 0.056153 .  
+## scentWoody     -26.3411    24.6668  -1.068 0.285910    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 175.1 on 770 degrees of freedom
+## Multiple R-squared:  0.1889, Adjusted R-squared:  0.1752 
+## F-statistic: 13.79 on 13 and 770 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(lm}\FloatTok{.4}\NormalTok{, lm}\FloatTok{.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: old_price ~ big_brand + comp + conc + ml + num_sel_ratings + 
+##     gender + seller_rating + scent
+## Model 2: old_price ~ big_brand + comp + conc + ml + gender + seller_rating + 
+##     scent
+##   Res.Df      RSS Df Sum of Sq      F Pr(>F)
+## 1    769 23569977                           
+## 2    770 23618485 -1    -48508 1.5826 0.2088
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# yes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remove seller\_rating?}
+\NormalTok{lm}\FloatTok{.6} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+} 
+\NormalTok{            conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+} 
+\NormalTok{            gender }\SpecialCharTok{+}\NormalTok{ scent, }\AttributeTok{data =}\NormalTok{ perfume2)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ big_brand + comp + conc + ml + gender + 
+##     scent, data = perfume2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -390.30 -132.39   -3.85  126.65  613.28 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    293.1350    41.2872   7.100 2.84e-12 ***
+## big_brand       88.5349    13.0150   6.803 2.06e-11 ***
+## comp            -4.6393     1.9378  -2.394 0.016900 *  
+## concEDT       -123.0394    16.1124  -7.636 6.62e-14 ***
+## ml               1.1934     0.2874   4.153 3.65e-05 ***
+## genderUnisex  -158.8406    29.8449  -5.322 1.35e-07 ***
+## genderWomen    -19.5736    18.1301  -1.080 0.280649    
+## scentFloral    -11.9415    24.5470  -0.486 0.626767    
+## scentFresh    -118.3690    34.4496  -3.436 0.000622 ***
+## scentFruity    -63.7574    30.6162  -2.082 0.037628 *  
+## scentOriental  -38.2330    28.9949  -1.319 0.187692    
+## scentSpicy     -52.7289    27.0056  -1.953 0.051239 .  
+## scentWoody     -27.4623    24.7303  -1.110 0.267142    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 175.6 on 771 degrees of freedom
+## Multiple R-squared:  0.1833, Adjusted R-squared:  0.1706 
+## F-statistic: 14.42 on 12 and 771 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(lm}\FloatTok{.5}\NormalTok{, lm}\FloatTok{.6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: old_price ~ big_brand + comp + conc + ml + gender + seller_rating + 
+##     scent
+## Model 2: old_price ~ big_brand + comp + conc + ml + gender + scent
+##   Res.Df      RSS Df Sum of Sq      F  Pr(>F)  
+## 1    770 23618485                              
+## 2    771 23780473 -1   -161988 5.2811 0.02183 *
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# no}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remove comp?}
+\NormalTok{lm}\FloatTok{.7} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+} 
+\NormalTok{            conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}
+\NormalTok{            gender }\SpecialCharTok{+}\NormalTok{ scent, }\AttributeTok{data =}\NormalTok{ perfume2)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ big_brand + conc + ml + seller_rating + 
+##     gender + scent, data = perfume2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -402.45 -134.17   -2.55  120.68  641.36 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     30.0020   106.1437   0.283  0.77752    
+## big_brand       90.4464    12.9155   7.003 5.46e-12 ***
+## concEDT       -124.4426    16.0786  -7.740 3.13e-14 ***
+## ml               1.0706     0.2864   3.738  0.00020 ***
+## seller_rating   61.3847    25.6641   2.392  0.01700 *  
+## genderUnisex  -158.7315    29.8444  -5.319 1.37e-07 ***
+## genderWomen    -22.2882    18.1541  -1.228  0.21993    
+## scentFloral    -10.8546    24.5392  -0.442  0.65837    
+## scentFresh    -113.6252    34.4542  -3.298  0.00102 ** 
+## scentFruity    -62.4752    30.6050  -2.041  0.04156 *  
+## scentOriental  -42.8740    29.0054  -1.478  0.13978    
+## scentSpicy     -49.8770    27.0014  -1.847  0.06510 .  
+## scentWoody     -24.4305    24.7213  -0.988  0.32335    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 175.6 on 771 degrees of freedom
+## Multiple R-squared:  0.1833, Adjusted R-squared:  0.1706 
+## F-statistic: 14.42 on 12 and 771 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(lm}\FloatTok{.5}\NormalTok{, lm}\FloatTok{.7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: old_price ~ big_brand + comp + conc + ml + gender + seller_rating + 
+##     scent
+## Model 2: old_price ~ big_brand + conc + ml + seller_rating + gender + 
+##     scent
+##   Res.Df      RSS Df Sum of Sq      F  Pr(>F)  
+## 1    770 23618485                              
+## 2    771 23780799 -1   -162314 5.2917 0.02169 *
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# We cannot.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remove gender?}
+\NormalTok{lm}\FloatTok{.8} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}
+\NormalTok{            conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}
+\NormalTok{            scent, }\AttributeTok{data =}\NormalTok{ perfume2)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ big_brand + conc + ml + comp + seller_rating + 
+##     scent, data = perfume2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -360.11 -132.84   -3.47  127.08  635.37 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     32.9219   108.2072   0.304  0.76102    
+## big_brand       86.3603    13.2545   6.516 1.31e-10 ***
+## concEDT       -102.9945    14.6992  -7.007 5.32e-12 ***
+## ml               1.1643     0.2885   4.036 5.99e-05 ***
+## comp            -4.2661     1.9676  -2.168  0.03045 *  
+## seller_rating   57.9550    26.0292   2.227  0.02627 *  
+## scentFloral     -7.8200    24.3445  -0.321  0.74813    
+## scentFresh    -108.3212    34.8832  -3.105  0.00197 ** 
+## scentFruity    -54.0073    30.7669  -1.755  0.07959 .  
+## scentOriental  -49.1566    29.4035  -1.672  0.09497 .  
+## scentSpicy     -44.6627    27.1583  -1.645  0.10047    
+## scentWoody     -21.9729    24.9056  -0.882  0.37792    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 178.2 on 772 degrees of freedom
+## Multiple R-squared:  0.158,  Adjusted R-squared:  0.146 
+## F-statistic: 13.17 on 11 and 772 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(lm}\FloatTok{.5}\NormalTok{, lm}\FloatTok{.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: old_price ~ big_brand + comp + conc + ml + gender + seller_rating + 
+##     scent
+## Model 2: old_price ~ big_brand + conc + ml + comp + seller_rating + scent
+##   Res.Df      RSS Df Sum of Sq      F    Pr(>F)    
+## 1    770 23618485                                  
+## 2    772 24518186 -2   -899701 14.666 5.611e-07 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# We cannot.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remove concentration?}
+\NormalTok{lm}\FloatTok{.9} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ gender }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}
+\NormalTok{            ml }\SpecialCharTok{+}\NormalTok{ scent, }\AttributeTok{data =}\NormalTok{ perfume2)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ big_brand + gender + comp + seller_rating + 
+##     ml + scent, data = perfume2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -381.77 -132.91  -10.13  127.95  675.50 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    -45.8480   109.7821  -0.418  0.67634    
+## big_brand       84.8390    13.4948   6.287 5.42e-10 ***
+## genderUnisex  -100.3190    29.7397  -3.373  0.00078 ***
+## genderWomen     35.9366    17.0106   2.113  0.03496 *  
+## comp            -5.5370     1.9981  -2.771  0.00572 ** 
+## seller_rating   65.9226    26.5174   2.486  0.01313 *  
+## ml               0.8317     0.2946   2.823  0.00488 ** 
+## scentFloral     18.2723    25.0091   0.731  0.46523    
+## scentFresh     -85.8633    35.3676  -2.428  0.01542 *  
+## scentFruity    -30.8914    31.2911  -0.987  0.32384    
+## scentOriental    5.0601    29.3085   0.173  0.86297    
+## scentSpicy     -34.3525    27.8029  -1.236  0.21699    
+## scentWoody      -2.0542    25.3342  -0.081  0.93539    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 181.4 on 771 degrees of freedom
+## Multiple R-squared:  0.1285, Adjusted R-squared:  0.115 
+## F-statistic: 9.477 on 12 and 771 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(lm}\FloatTok{.5}\NormalTok{, lm}\FloatTok{.9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: old_price ~ big_brand + comp + conc + ml + gender + seller_rating + 
+##     scent
+## Model 2: old_price ~ big_brand + gender + comp + seller_rating + ml + 
+##     scent
+##   Res.Df      RSS Df Sum of Sq      F    Pr(>F)    
+## 1    770 23618485                                  
+## 2    771 25375667 -1  -1757182 57.287 1.077e-13 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# No.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remove scent?}
+\NormalTok{lm}\FloatTok{.10} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ gender }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+}\NormalTok{ conc }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}\NormalTok{ comp, }\AttributeTok{data =}\NormalTok{ perfume2)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ big_brand + gender + ml + conc + seller_rating + 
+##     comp, data = perfume2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -401.68 -132.00   -7.78  117.95  657.06 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     13.3073   105.0236   0.127   0.8992    
+## big_brand       85.8179    13.0461   6.578 8.76e-11 ***
+## genderUnisex  -151.7611    29.6931  -5.111 4.04e-07 ***
+## genderWomen     -8.4502    16.2998  -0.518   0.6043    
+## ml               1.1538     0.2877   4.011 6.64e-05 ***
+## concEDT       -116.2215    15.7987  -7.356 4.81e-13 ***
+## seller_rating   61.2999    25.7333   2.382   0.0175 *  
+## comp            -4.3263     1.9427  -2.227   0.0262 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 176.5 on 776 degrees of freedom
+## Multiple R-squared:  0.1697, Adjusted R-squared:  0.1622 
+## F-statistic: 22.66 on 7 and 776 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(lm}\FloatTok{.5}\NormalTok{, lm}\FloatTok{.10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: old_price ~ big_brand + comp + conc + ml + gender + seller_rating + 
+##     scent
+## Model 2: old_price ~ big_brand + gender + ml + conc + seller_rating + 
+##     comp
+##   Res.Df      RSS Df Sum of Sq      F   Pr(>F)   
+## 1    770 23618485                                
+## 2    776 24177525 -6   -559040 3.0376 0.006084 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# No.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# RSE}
+\NormalTok{rses }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{rse}\NormalTok{(lm}\FloatTok{.1}\NormalTok{), }\FunctionTok{rse}\NormalTok{(lm}\FloatTok{.2}\NormalTok{), }\FunctionTok{rse}\NormalTok{(lm}\FloatTok{.3}\NormalTok{), }\FunctionTok{rse}\NormalTok{(lm}\FloatTok{.4}\NormalTok{), }\FunctionTok{rse}\NormalTok{(lm}\FloatTok{.5}\NormalTok{))}
+\CommentTok{\# R\^{}2}
+\NormalTok{r2s }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{r2}\NormalTok{(lm}\FloatTok{.1}\NormalTok{), }\FunctionTok{r2}\NormalTok{(lm}\FloatTok{.2}\NormalTok{), }\FunctionTok{r2}\NormalTok{(lm}\FloatTok{.3}\NormalTok{), }\FunctionTok{r2}\NormalTok{(lm}\FloatTok{.4}\NormalTok{), }\FunctionTok{r2}\NormalTok{(lm}\FloatTok{.5}\NormalTok{))}
+\CommentTok{\# MSE}
+\NormalTok{mses }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{mse}\NormalTok{(lm}\FloatTok{.1}\NormalTok{), }\FunctionTok{mse}\NormalTok{(lm}\FloatTok{.2}\NormalTok{), }\FunctionTok{mse}\NormalTok{(lm}\FloatTok{.3}\NormalTok{), }\FunctionTok{mse}\NormalTok{(lm}\FloatTok{.4}\NormalTok{), }\FunctionTok{mse}\NormalTok{(lm}\FloatTok{.5}\NormalTok{))}
+\CommentTok{\# generalization error}
+\NormalTok{ges }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{ge}\NormalTok{(lm}\FloatTok{.1}\NormalTok{), }\FunctionTok{ge}\NormalTok{(lm}\FloatTok{.2}\NormalTok{), }\FunctionTok{ge}\NormalTok{(lm}\FloatTok{.3}\NormalTok{), }\FunctionTok{ge}\NormalTok{(lm}\FloatTok{.4}\NormalTok{), }\FunctionTok{ge}\NormalTok{(lm}\FloatTok{.5}\NormalTok{))}
+\CommentTok{\# Marlow\textquotesingle{}s Cp}
+\NormalTok{Cps }\OtherTok{=} \FunctionTok{Cp.lm}\NormalTok{(}\FunctionTok{list}\NormalTok{(lm}\FloatTok{.1}\NormalTok{, lm}\FloatTok{.2}\NormalTok{, lm}\FloatTok{.3}\NormalTok{, lm}\FloatTok{.4}\NormalTok{, lm}\FloatTok{.5}\NormalTok{))}
+\CommentTok{\# AIC}
+\NormalTok{aics }\OtherTok{=} \FunctionTok{AIC}\NormalTok{(lm}\FloatTok{.1}\NormalTok{, lm}\FloatTok{.2}\NormalTok{, lm}\FloatTok{.3}\NormalTok{, lm}\FloatTok{.4}\NormalTok{, lm}\FloatTok{.5}\NormalTok{)[, }\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in AIC.default(lm.1, lm.2, lm.3, lm.4, lm.5): models are not all fitted
+## to the same number of observations
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# BIC}
+\NormalTok{bics }\OtherTok{=} \FunctionTok{BIC}\NormalTok{(lm}\FloatTok{.1}\NormalTok{, lm}\FloatTok{.2}\NormalTok{, lm}\FloatTok{.3}\NormalTok{, lm}\FloatTok{.4}\NormalTok{, lm}\FloatTok{.5}\NormalTok{)[, }\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in BIC.default(lm.1, lm.2, lm.3, lm.4, lm.5): models are not all fitted
+## to the same number of observations
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# cannot remove scent, conc}
+\NormalTok{metrics }\OtherTok{=} \FunctionTok{data.frame}\NormalTok{(rses, r2s, mses, ges, Cps, aics, bics); metrics}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       rses       r2s     mses      ges      Cps     aics     bics
+## 1 216.3359 0.1194184 45804.19 1994.036 47798.23 10864.87 10949.14
+## 2 175.1131 0.1754292 29999.69 1329.843 31993.73 10343.11 10427.07
+## 3 175.1453 0.1751258 30049.85 1252.077 31926.59 10342.42 10421.71
+## 4 175.0719 0.1758177 30063.75 1172.838 31823.19 10340.78 10415.41
+## 5 175.1381 0.1751940 30125.62 1095.477 31767.77 10340.39 10410.36
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# 5{-}fold CV}
+\NormalTok{pre.ols }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(perfume2))}
+\NormalTok{pre.best }\OtherTok{=} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(perfume2))}
+\NormalTok{folds }\OtherTok{=} \DecValTok{5}
+\NormalTok{sb }\OtherTok{=} \FunctionTok{round}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(perfume2), }\AttributeTok{length =}\NormalTok{ (folds }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)))}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{folds) \{}
+\NormalTok{  test }\OtherTok{=}\NormalTok{ (sb[((folds }\SpecialCharTok{+} \DecValTok{1}\NormalTok{) }\SpecialCharTok{{-}}\NormalTok{ i)] }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)}\SpecialCharTok{:}\NormalTok{(sb[((folds }\SpecialCharTok{+} \DecValTok{2}\NormalTok{) }\SpecialCharTok{{-}}\NormalTok{ i)])}
+\NormalTok{  train }\OtherTok{=}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(perfume2))[}\SpecialCharTok{{-}}\NormalTok{test]}
+  \DocumentationTok{\#\# fit models}
+\NormalTok{  fit.ols }\OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ perfume2[train, ])}
+\NormalTok{  fit.best }\OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+}\NormalTok{ conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+} 
+\NormalTok{                  gender }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}\NormalTok{ scent, }\AttributeTok{data =}\NormalTok{ perfume2[train, ])}
+  \DocumentationTok{\#\# create predictions}
+\NormalTok{  pre.ols[test] }\OtherTok{=} \FunctionTok{predict}\NormalTok{(fit.ols, }\AttributeTok{newdata =}\NormalTok{ perfume2[test, ])}
+\NormalTok{  pre.best[test] }\OtherTok{=} \FunctionTok{predict}\NormalTok{(fit.best, }\AttributeTok{newdata =}\NormalTok{ perfume2[test, ])}
+\NormalTok{\}}
+\DocumentationTok{\#\# Finally, compute the mean squared prediction error:}
+\FunctionTok{mean}\NormalTok{((perfume2}\SpecialCharTok{$}\NormalTok{old\_price }\SpecialCharTok{{-}}\NormalTok{ pre.ols) }\SpecialCharTok{\^{}} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 32890.85
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{((perfume2}\SpecialCharTok{$}\NormalTok{old\_price }\SpecialCharTok{{-}}\NormalTok{ pre.best) }\SpecialCharTok{\^{}} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 31796.32
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{price\_by\_scent }\OtherTok{=}\NormalTok{ perfume2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(scent) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{avg\_price =} \FunctionTok{mean}\NormalTok{(old\_price))}
+\NormalTok{count\_by\_scent }\OtherTok{=}\NormalTok{ perfume2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(scent) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\NormalTok{scent\_df }\OtherTok{=} \FunctionTok{data.frame}\NormalTok{(price\_by\_scent, count\_by\_scent[, }\DecValTok{2}\NormalTok{]); scent\_df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      scent avg_price count
+## 1   Citrus  317.9231    78
+## 2   Floral  344.5989   266
+## 3    Fresh  223.6600    40
+## 4   Fruity  293.3083    66
+## 5 Oriental  307.5211    83
+## 6    Spicy  285.9680    97
+## 7    Woody  305.5562   154
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{perfume3 }\OtherTok{=}\NormalTok{ perfume2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{is.fresh =} \FunctionTok{ifelse}\NormalTok{(scent }\SpecialCharTok{==} \StringTok{"Fresh"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{is.unisex =} \FunctionTok{ifelse}\NormalTok{(gender }\SpecialCharTok{==} \StringTok{"Unisex"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+\NormalTok{lm}\FloatTok{.11} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ conc }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+}\NormalTok{ is.unisex }\SpecialCharTok{+}\NormalTok{ is.fresh, }\AttributeTok{data =}\NormalTok{ perfume3)}
+\FunctionTok{summary}\NormalTok{(lm}\FloatTok{.11}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = old_price ~ big_brand + conc + comp + seller_rating + 
+##     ml + is.unisex + is.fresh, data = perfume3)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -397.8 -130.0   -8.3  117.3  651.9 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     23.3471   104.0130   0.224  0.82246    
+## big_brand       85.5629    12.9732   6.595 7.84e-11 ***
+## concEDT       -111.0210    13.5369  -8.201 9.83e-16 ***
+## comp            -4.4408     1.9320  -2.298  0.02180 *  
+## seller_rating   56.8586    25.5389   2.226  0.02628 *  
+## ml               1.2119     0.2797   4.332 1.67e-05 ***
+## is.unisex     -146.3030    27.4428  -5.331 1.28e-07 ***
+## is.fresh       -85.3706    28.5594  -2.989  0.00289 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 175.5 on 776 degrees of freedom
+## Multiple R-squared:  0.1789, Adjusted R-squared:  0.1714 
+## F-statistic: 24.15 on 7 and 776 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# residual analysis}
+\FunctionTok{plot}\NormalTok{(lm}\FloatTok{.11}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-30-1.pdf}
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-30-2.pdf}
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-30-3.pdf}
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-30-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(lm}\FloatTok{.11}\NormalTok{, }\AttributeTok{which =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-30-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dwtest}\NormalTok{(lm}\FloatTok{.11}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"two.sided"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Durbin-Watson test
+## 
+## data:  lm.11
+## DW = 1.8654, p-value = 0.0573
+## alternative hypothesis: true autocorrelation is not 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{set1 }\OtherTok{=}\NormalTok{ lm}\FloatTok{.11}\SpecialCharTok{$}\NormalTok{residuals[}\FunctionTok{which}\NormalTok{(lm}\FloatTok{.11}\SpecialCharTok{$}\NormalTok{fitted.values }\SpecialCharTok{\textgreater{}=} \DecValTok{300}\NormalTok{)]}
+\NormalTok{set2 }\OtherTok{=}\NormalTok{ lm}\FloatTok{.11}\SpecialCharTok{$}\NormalTok{residuals[}\FunctionTok{which}\NormalTok{(lm}\FloatTok{.11}\SpecialCharTok{$}\NormalTok{fitted.values }\SpecialCharTok{\textless{}} \DecValTok{300}\NormalTok{)]}
+\FunctionTok{var.test}\NormalTok{(set1, set2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F test to compare two variances
+## 
+## data:  set1 and set2
+## F = 0.94906, num df = 473, denom df = 309, p-value = 0.6078
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.7729524 1.1602054
+## sample estimates:
+## ratio of variances 
+##          0.9490633
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lm}\FloatTok{.12} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ perfume3)}
+\NormalTok{lm}\FloatTok{.13} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+}\NormalTok{ item\_rating }\SpecialCharTok{+}
+\NormalTok{            conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+}\NormalTok{ num\_sel\_ratings }\SpecialCharTok{+}
+\NormalTok{            is.unisex }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}\NormalTok{ is.fresh, }\AttributeTok{data =}\NormalTok{ perfume3)}
+\NormalTok{lm}\FloatTok{.14} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+} 
+\NormalTok{            conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+}\NormalTok{ num\_sel\_ratings }\SpecialCharTok{+}
+\NormalTok{            is.unisex }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}\NormalTok{ is.fresh, }\AttributeTok{data =}\NormalTok{ perfume3)}
+\NormalTok{lm}\FloatTok{.15} \OtherTok{=} \FunctionTok{lm}\NormalTok{(old\_price }\SpecialCharTok{\textasciitilde{}}\NormalTok{ big\_brand }\SpecialCharTok{+}\NormalTok{ comp }\SpecialCharTok{+} 
+\NormalTok{            conc }\SpecialCharTok{+}\NormalTok{ ml }\SpecialCharTok{+}\NormalTok{ is.unisex }\SpecialCharTok{+}\NormalTok{ seller\_rating }\SpecialCharTok{+}\NormalTok{ is.fresh, }\AttributeTok{data =}\NormalTok{ perfume3)}
+
+\CommentTok{\# RSE}
+\NormalTok{rses2 }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{rse}\NormalTok{(lm}\FloatTok{.12}\NormalTok{), }\FunctionTok{rse}\NormalTok{(lm}\FloatTok{.13}\NormalTok{), }\FunctionTok{rse}\NormalTok{(lm}\FloatTok{.14}\NormalTok{), }\FunctionTok{rse}\NormalTok{(lm}\FloatTok{.15}\NormalTok{))}
+\CommentTok{\# R\^{}2}
+\NormalTok{r2s2 }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{r2}\NormalTok{(lm}\FloatTok{.12}\NormalTok{), }\FunctionTok{r2}\NormalTok{(lm}\FloatTok{.13}\NormalTok{), }\FunctionTok{r2}\NormalTok{(lm}\FloatTok{.14}\NormalTok{), }\FunctionTok{r2}\NormalTok{(lm}\FloatTok{.15}\NormalTok{))}
+\CommentTok{\# MSE}
+\NormalTok{mses2 }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{mse}\NormalTok{(lm}\FloatTok{.12}\NormalTok{), }\FunctionTok{mse}\NormalTok{(lm}\FloatTok{.13}\NormalTok{), }\FunctionTok{mse}\NormalTok{(lm}\FloatTok{.14}\NormalTok{), }\FunctionTok{mse}\NormalTok{(lm}\FloatTok{.15}\NormalTok{))}
+\CommentTok{\# generalization error}
+\NormalTok{ges2 }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{ge}\NormalTok{(lm}\FloatTok{.12}\NormalTok{), }\FunctionTok{ge}\NormalTok{(lm}\FloatTok{.13}\NormalTok{), }\FunctionTok{ge}\NormalTok{(lm}\FloatTok{.14}\NormalTok{), }\FunctionTok{ge}\NormalTok{(lm}\FloatTok{.15}\NormalTok{))}
+\CommentTok{\# Marlow\textquotesingle{}s Cp}
+\NormalTok{Cps2 }\OtherTok{=} \FunctionTok{Cp.lm}\NormalTok{(}\FunctionTok{list}\NormalTok{(lm}\FloatTok{.12}\NormalTok{, lm}\FloatTok{.13}\NormalTok{, lm}\FloatTok{.14}\NormalTok{, lm}\FloatTok{.15}\NormalTok{))}
+\CommentTok{\# AIC}
+\NormalTok{aics2 }\OtherTok{=} \FunctionTok{AIC}\NormalTok{(lm}\FloatTok{.12}\NormalTok{, lm}\FloatTok{.13}\NormalTok{, lm}\FloatTok{.14}\NormalTok{, lm}\FloatTok{.15}\NormalTok{)[, }\DecValTok{2}\NormalTok{]}
+\CommentTok{\# BIC}
+\NormalTok{bics2 }\OtherTok{=} \FunctionTok{BIC}\NormalTok{(lm}\FloatTok{.12}\NormalTok{, lm}\FloatTok{.13}\NormalTok{, lm}\FloatTok{.14}\NormalTok{, lm}\FloatTok{.15}\NormalTok{)[, }\DecValTok{2}\NormalTok{]}
+\CommentTok{\# cannot remove scent, conc}
+\NormalTok{metrics }\OtherTok{=} \FunctionTok{data.frame}\NormalTok{(rses2, r2s2, mses2, ges2, Cps2, aics2, bics2); metrics}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      rses2      r2s2    mses2      ges2     Cps2    aics2    bics2
+## 1 175.1131 0.1754292 29999.69 1486.2950 31329.53 10343.11 10427.07
+## 2 175.5700 0.1711208 30431.66  786.3479 31213.92 10340.31 10391.62
+## 3 175.4785 0.1719850 30439.21  706.9752 31143.25 10338.51 10385.15
+## 4 175.5352 0.1714500 30498.18  628.8285 31123.99 10338.03 10380.01
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{palette}\NormalTok{(}\FunctionTok{brewer.pal}\NormalTok{(}\AttributeTok{n =} \DecValTok{12}\NormalTok{, }\AttributeTok{name =} \StringTok{"Paired"}\NormalTok{))}
+
+\CommentTok{\# Department}
+\NormalTok{p7 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(department) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 2
+##   department  count
+##   <chr>       <int>
+## 1 Kids Unisex     1
+## 2 Men           378
+## 3 Unisex         49
+## 4 Women         461
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dept\_slice }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{379}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{461}\NormalTok{)}
+\NormalTok{lbls }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Men"}\NormalTok{, }\StringTok{"Unisex"}\NormalTok{, }\StringTok{"Women"}\NormalTok{)}
+\FunctionTok{pie}\NormalTok{(dept\_slice, }\AttributeTok{labels =}\NormalTok{ lbls, }\AttributeTok{main=}\StringTok{"Pie Chart of Departments"}\NormalTok{, }\AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#A6CEE3"}\NormalTok{, }\StringTok{"\#ffffff"}\NormalTok{, }\StringTok{"\#CAB2D6"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Brands}
+\NormalTok{p3 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(brands) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 148 x 2
+##    brands           count
+##    <chr>            <int>
+##  1 ADOLFO DOMINGUEZ     1
+##  2 AIGNER               3
+##  3 Ajmal               14
+##  4 Al Fakhr             1
+##  5 al raheeb            1
+##  6 Al Rasasi            1
+##  7 Alina Corel          5
+##  8 Alrehab              2
+##  9 AMOUAGE              3
+## 10 ANGEL SCHLESSER      2
+## # ... with 138 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{brand\_slice }\OtherTok{\textless{}{-}}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(big\_brand) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\FunctionTok{pie}\NormalTok{(brand\_slice}\SpecialCharTok{$}\NormalTok{count, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Niche"}\NormalTok{, }\StringTok{"Big Brands"}\NormalTok{), }\AttributeTok{main=}\StringTok{"Pie Chart of Brand"}\NormalTok{, }\AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#CAB2D6"}\NormalTok{, }\StringTok{"\#ffffff"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Scent}
+\NormalTok{scent\_count }\OtherTok{\textless{}{-}}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(scent) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\FunctionTok{pie}\NormalTok{(scent\_count}\SpecialCharTok{$}\NormalTok{count, }\AttributeTok{labels =}\NormalTok{ scent\_count}\SpecialCharTok{$}\NormalTok{scent, }\AttributeTok{main=}\StringTok{"Pie Chart of Scents"}\NormalTok{, }\AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#A6CEE3"}\NormalTok{, }\StringTok{"\#ffffff"}\NormalTok{, }\StringTok{"\#CAB2D6"}\NormalTok{, }\StringTok{"\#FFFF99"}\NormalTok{, }\StringTok{"\#FDBF6F"}\NormalTok{, }\StringTok{"\#FB9A99"}\NormalTok{, }\StringTok{"\#B2DF8A"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{scent\_slice }\OtherTok{\textless{}{-}}\NormalTok{ perfume3 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(is.fresh) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\FunctionTok{pie}\NormalTok{(scent\_slice}\SpecialCharTok{$}\NormalTok{count, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Others"}\NormalTok{, }\StringTok{"Fresh"}\NormalTok{), }\AttributeTok{main=}\StringTok{"Pie Chart of Merged Scents"}\NormalTok{, }\AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#A6CEE3"}\NormalTok{, }\StringTok{"\#ffffff"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Price}
+\FunctionTok{hist}\NormalTok{(perfume}\SpecialCharTok{$}\NormalTok{old\_price, }\AttributeTok{main =} \StringTok{"Histogram of Price"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Price"}\NormalTok{, }\AttributeTok{col =} \StringTok{"\#A6CEE3"}\NormalTok{, }\AttributeTok{breaks =} \DecValTok{20}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# score}
+\FunctionTok{hist}\NormalTok{(perfume}\SpecialCharTok{$}\NormalTok{comp, }\AttributeTok{main =} \StringTok{"Histogram of Score"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Score"}\NormalTok{, }\AttributeTok{col =} \StringTok{"\#CAB2D6"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Seller}
+\NormalTok{p1 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(seller) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 115 x 2
+##    seller                                count
+##    <chr>                                 <int>
+##  1 Abu Al Tayyeb Perfumes                   11
+##  2 Acacia Rose                               5
+##  3 Ahmed Mohamed Abbas Abbas Trading Est     1
+##  4 Al-Najm                                  18
+##  5 Alabeer                                   2
+##  6 alkhalijiah  perfume                      4
+##  7 alryhanaksa                               1
+##  8 AMLAQ                                    87
+##  9 aRt Ti Ci                                 1
+## 10 Asrar Aljamal                             4
+## # ... with 105 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seller\_slice }\OtherTok{\textless{}{-}}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(is\_noon) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\FunctionTok{pie}\NormalTok{(seller\_slice}\SpecialCharTok{$}\NormalTok{count, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Non{-}noon"}\NormalTok{, }\StringTok{"Noon"}\NormalTok{), }\AttributeTok{main=}\StringTok{"Pie Chart of Seller"}\NormalTok{, }\AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#A6CEE3"}\NormalTok{, }\StringTok{"\#ffffff"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-7.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# volume}
+\NormalTok{p1 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(ml) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 26 x 2
+##       ml count
+##    <int> <int>
+##  1     1     1
+##  2     2    10
+##  3     5     7
+##  4    15     1
+##  5    25     7
+##  6    30     1
+##  7    35     1
+##  8    40     2
+##  9    45     2
+## 10    50    62
+## # ... with 16 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ml\_count }\OtherTok{\textless{}{-}}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(ml) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\FunctionTok{barplot}\NormalTok{(ml\_count}\SpecialCharTok{$}\NormalTok{count, }\AttributeTok{names.arg =}\NormalTok{ ml\_count}\SpecialCharTok{$}\NormalTok{ml, }\AttributeTok{main =} \StringTok{"Barplot for Volume"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Volume"}\NormalTok{, }\AttributeTok{col =} \StringTok{"\#A6CEE3"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-8.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# conc}
+\NormalTok{conc\_slice }\OtherTok{\textless{}{-}}\NormalTok{ perfume }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(conc) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\FunctionTok{pie}\NormalTok{(conc\_slice}\SpecialCharTok{$}\NormalTok{count, }\AttributeTok{labels =}\NormalTok{ conc\_slice}\SpecialCharTok{$}\NormalTok{conc, }\AttributeTok{main=}\StringTok{"Pie Chart of Concentration"}\NormalTok{, }\AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#CAB2D6"}\NormalTok{, }\StringTok{"\#A6CEE3"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-9.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Item rating}
+\FunctionTok{hist}\NormalTok{(perfume}\SpecialCharTok{$}\NormalTok{item\_rating, }\AttributeTok{col =} \StringTok{"\#A6CEE3"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Histogram of Item Rating"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Item Rating"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-10.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# seller rating}
+\FunctionTok{hist}\NormalTok{(perfume}\SpecialCharTok{$}\NormalTok{seller\_rating, }\AttributeTok{col =} \StringTok{"\#CAB2D6"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Histogram of Seller Rating"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Seller Rating"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-11.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# num seller rating}
+\FunctionTok{hist}\NormalTok{(perfume}\SpecialCharTok{$}\NormalTok{num\_sel\_ratings, }\AttributeTok{col =} \StringTok{"\#A6CEE3"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Histogram of Num Seller Rating"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Num Seller Rating"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-12.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comp}
+\FunctionTok{hist}\NormalTok{(perfume}\SpecialCharTok{$}\NormalTok{comp, }\AttributeTok{breaks =} \DecValTok{20}\NormalTok{, }\AttributeTok{main =} \StringTok{"Histogram of Complexity"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Complexity"}\NormalTok{, }\AttributeTok{col =} \StringTok{"\#CAB2D6"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{423-project_files/figure-latex/unnamed-chunk-32-13.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{as.data.frame}\NormalTok{(base\_note) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(base\_note) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 601 x 2
+##    base_note                                                 count
+##    <chr>                                                     <int>
+##  1 absolutevanillaorchidtahitensis,praline,patchouli,papyrus     1
+##  2 acaciawood                                                    1
+##  3 akigalawood                                                   1
+##  4 aldehyde,jasmine,whiteflowers                                 2
+##  5 almonds,cedar,oakmoss,tonka,vanilla                           1
+##  6 amber                                                         3
+##  7 amber,benzoin,cedar,tonka                                     1
+##  8 amber,cactus,cotton                                           1
+##  9 amber,cactus,cottonflower                                     1
+## 10 amber,cactus,cottonplantblossom                               1
+## # ... with 591 more rows
+\end{verbatim}
+
+\end{document}
